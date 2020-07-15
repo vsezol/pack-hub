@@ -7,5 +7,5 @@
 <style lang="sass" scoped>
 .footer
   height: 100px
-  background: #EEE
+  background: #E9ECEF
 </style>

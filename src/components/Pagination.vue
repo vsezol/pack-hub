@@ -2,9 +2,7 @@
   <div
     class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-3"
   >
-    <h2 class="title p-0 m-0">
-      Packages
-    </h2>
+    <h2 class="title p-0 m-0">{{ total }} packages found</h2>
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
@@ -16,11 +14,17 @@
 
 <script>
 export default {
+  props: ['total', 'pagination'],
   data() {
     return {
-      rows: 10,
+      rows: this.total,
       perPage: 1,
-      currentPage: 1
+      currentPage: this.pagination + 1
+    }
+  },
+  watch: {
+    currentPage(pagination) {
+      this.$emit('pagination', pagination - 1)
     }
   }
 }
