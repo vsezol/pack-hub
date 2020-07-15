@@ -1,27 +1,31 @@
 <template>
   <div id="app">
-    <Header />
+    <Main />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
+import Main from '@/views/Main'
+
 export default {
   name: 'App',
   components: {
-    Header
+    Main
   }
 }
 </script>
 
 <style lang="sass">
-  @font-face
-    font-family: 'Roboto-Regular'
-    src: url('./assets/fonts/Roboto/Roboto-Regular.ttf')
-  @font-face
-    font-family: 'Roboto-Bold'
-    src: url('./assets/fonts/Roboto/Roboto-Bold.ttf')
+@font-face
+  font-family: 'Roboto-Regular'
+  src: url('./assets/fonts/Roboto/Roboto-Regular.ttf')
+@font-face
+  font-family: 'Roboto-Bold'
+  src: url('./assets/fonts/Roboto/Roboto-Bold.ttf')
 
-  *
-    font-family: 'Roboto-Regular'
+*
+  font-family: 'Roboto-Regular'
+
+body
+  background: #F6F8FA!important
 </style>
