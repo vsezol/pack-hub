@@ -1,13 +1,13 @@
 <template>
-  <b-container class="mt-5">
-    <b-form inline class="w-100 flex-nowrap">
-      <b-input
+  <b-container class="mt-5 mb-2">
+    <b-form inline class="w-100 flex-nowrap" @submit.prevent="onSubmitHandler">
+      <b-form-input
         v-model="toSearch"
         id="search"
-        class="mr-2 flex-grow-1 shadow-none"
+        class="shadow-none w-100 mr-2 flex-grow-1"
         placeholder="Search npm package..."
-      ></b-input>
-      <b-button variant="dark" class="pl-lg-5 pr-lg-5">
+      ></b-form-input>
+      <b-button variant="dark" type="submit" class="pl-lg-5 pr-lg-5">
         <b-icon-search></b-icon-search>
       </b-button>
     </b-form>
@@ -21,9 +21,11 @@ export default {
       toSearch: ''
     }
   },
-  watch: {
-    toSearch(value) {
-      console.log(value)
+  methods: {
+    onSubmitHandler() {
+      if (this.toSearch.trim()) {
+        alert(this.toSearch)
+      }
     }
   }
 }
@@ -38,6 +40,10 @@ export default {
   transition: background 0.25s ease-in-out
   &:focus
     background: #DDDDDD
+
+#search-feedback
+  position: absolute
+  width: fit-content
 </style>
 
 // http://registry.npmjs.com/-/v1/search?text=react&size=2
