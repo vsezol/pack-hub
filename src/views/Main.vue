@@ -1,8 +1,10 @@
 <template>
-  <div class="main">
-    <Header />
-    <Search />
-    <PackagesList />
+  <div class="main d-flex flex-column">
+    <div class="main-wrapper flex-grow-1">
+      <Header />
+      <Search />
+      <PackagesList />
+    </div>
     <Footer />
   </div>
 </template>
@@ -22,3 +24,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.main
+  min-height: 100vh
+</style>

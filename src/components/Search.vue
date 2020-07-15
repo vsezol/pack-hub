@@ -1,17 +1,33 @@
 <template>
   <b-container class="mt-5">
-    <b-form inline class="w-100">
+    <b-form inline class="w-100 flex-nowrap">
       <b-input
+        v-model="toSearch"
         id="search"
-        class="mb-2 mr-sm-2 mb-sm-0 flex-grow-1 shadow-none"
+        class="mr-2 flex-grow-1 shadow-none"
         placeholder="Search npm package..."
       ></b-input>
-      <b-button variant="dark" class="pl-5 pr-5">
+      <b-button variant="dark" class="pl-lg-5 pr-lg-5">
         <b-icon-search></b-icon-search>
       </b-button>
     </b-form>
   </b-container>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      toSearch: ''
+    }
+  },
+  watch: {
+    toSearch(value) {
+      console.log(value)
+    }
+  }
+}
+</script>
 
 <style lang="sass">
 #search
