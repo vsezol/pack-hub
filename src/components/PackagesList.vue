@@ -19,7 +19,7 @@
       bgVariant="warning"
     />
     <div v-else>
-      <PackageCard v-for="i in 2" :key="i" />
+      <PackageCard v-for="(pack, i) of packages" :pack="pack" :key="i" />
     </div>
   </b-container>
 </template>

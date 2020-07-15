@@ -28,7 +28,8 @@ export default new Vuex.Store({
       state.packages = packages
       state.pagination = pagination
       state.total = total
-      ;(state.loading = false), (state.toSearch = toSearch)
+      state.loading = false
+      state.toSearch = toSearch
     },
     [ERROR_SEARCH_PACKS](state, payload) {
       state.loading = false
@@ -48,9 +49,8 @@ export default new Vuex.Store({
     async searchPacks({ dispatch, state: { step } }, { toSearch, pagination }) {
       dispatch('startSearchPacks')
       pagination = pagination || 0
-      const size = (pagination + 1) * step
       try {
-        const { total, objects } = await search(toSearch, pagination, size)
+        const { total, objects } = await search(toSearch, pagination, step)
         dispatch('successSearchPacks', {
           pagination,
           total,
