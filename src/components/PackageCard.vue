@@ -6,7 +6,7 @@
           <a :href="repository" target="_blank">{{ name }}</a>
           <b-badge variant="info" class="version ml-2">v{{ version }}</b-badge>
         </h3>
-        <b-card-text>
+        <b-card-text class="mb-1">
           {{ description }}
         </b-card-text>
         <Keywords :keywords="keywords" />
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Score from './Score'
-import Keywords from './Keywords'
+import Score from './ui/Score'
+import Keywords from './ui/Keywords'
 
 const destructPack = pack => {
   console.log(pack)

@@ -26,10 +26,10 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 
-import Pagination from './Pagination'
+import Pagination from './ui/Pagination'
 import PackageCard from './PackageCard'
-import Info from './Info'
-import Loader from './Loader'
+import Info from './ui/Info'
+import Loader from './ui/Loader'
 
 export default {
   components: {

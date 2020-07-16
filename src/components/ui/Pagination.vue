@@ -1,6 +1,10 @@
 <template>
   <div
-    class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center pt-3 pb-3"
+    class="
+    d-flex flex-wrap pt-3 pb-3 
+    justify-content-center 
+    justify-content-md-between 
+    align-items-center"
   >
     <h2 class="title m-md-0">{{ total }} packages found</h2>
     <b-pagination
@@ -18,9 +22,13 @@ export default {
   props: ['total', 'pagination', 'step'],
   data() {
     return {
-      rows: Math.round(this.total / this.step),
       perPage: 1,
       currentPage: this.pagination
+    }
+  },
+  computed: {
+    rows() {
+      return Math.round(this.total / this.step)
     }
   },
   watch: {
@@ -35,4 +43,17 @@ export default {
 .title
   font-size: 1.25rem
   font-family: 'Roboto-Bold'
+</style>
+
+<style lang="sass">
+.page-link
+  color: #343A40!important
+  background-color: white
+  box-shadow: none!important
+
+.page-item.active
+  .page-link
+    background-color: #343A40!important
+    border-color: #343A40!important
+    color: white!important
 </style>

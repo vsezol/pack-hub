@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
+import Header from '@/components/blocks/Header'
 import Search from '@/components/Search'
 import PackagesList from '@/components/PackagesList'
-import Footer from '@/components/Footer'
+import Footer from '@/components/blocks/Footer'
 
 export default {
   components: {

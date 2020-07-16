@@ -24,7 +24,7 @@ export default {
   src: url('./assets/fonts/Roboto/Roboto-Bold.ttf')
 
 *
-  font-family: 'Roboto-Regular'
+  font-family: 'Roboto-Regular'!important
 
 body
   background: #F6F8FA!important
