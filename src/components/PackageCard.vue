@@ -1,25 +1,43 @@
 <template>
   <b-card bg-variant="dark" text-variant="white" class="mt-2 mb-2">
-    <h3 class="card-title">
-      <a :href="this.repo" target="_blank">{{ this.package.name }}</a>
-    </h3>
-    <b-card-text>
-      {{ this.package.description }}
-    </b-card-text>
+    <div class="d-flex justify-content-between p-0">
+      <div>
+        <h3 class="card-title">
+          <a :href="this.repository" target="_blank">{{ this.name }}</a>
+        </h3>
+        <b-card-text>
+          {{ this.description }}
+        </b-card-text>
+      </div>
+      <Score :values="[this.popularity, this.quality, this.maintenance]" />
+    </div>
   </b-card>
 </template>
 
 <script>
+import Score from './Score'
+
+const destructPack = pack => {
+  const {
+    score: {
+      detail: { popularity, quality, maintenance }
+    },
+    package: {
+      links: { repository },
+      name,
+      description
+    }
+  } = pack
+  return { repository, name, description, maintenance, popularity, quality }
+}
+
 export default {
   props: ['pack'],
   data() {
-    return {
-      package: this.pack.package,
-      repo: this.pack.package.links.repository
-    }
+    return destructPack(this.pack)
   },
-  mounted() {
-    console.log(this.repo)
+  components: {
+    Score
   }
 }
 </script>

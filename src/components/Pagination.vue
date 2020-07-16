@@ -1,8 +1,8 @@
 <template>
   <div
-    class="d-flex flex-wrap justify-content-between align-items-center pt-3 pb-3"
+    class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center pt-3 pb-3"
   >
-    <h2 class="title p-0 m-0">{{ total }} packages found</h2>
+    <h2 class="title m-md-0">{{ total }} packages found</h2>
     <b-pagination
       v-if="rows > 1"
       v-model="currentPage"
