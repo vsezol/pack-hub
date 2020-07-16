@@ -2,9 +2,9 @@
   <b-card bg-variant="dark" text-variant="white" class="mt-2 mb-2">
     <div class="d-flex justify-content-between p-0">
       <div>
-        <h3 class="card-title m-0 d-flex align-items-center">
+        <h3 class="card-title m-0 d-flex align-items-center flex-wrap">
           <a :href="repository" target="_blank">{{ name }}</a>
-          <b-badge variant="info" class="version ml-2">v{{ version }}</b-badge>
+          <b-badge variant="info" class="version ml-2 mt-1">v{{ version }}</b-badge>
         </h3>
         <b-card-text class="mb-1">
           {{ description }}
@@ -60,11 +60,13 @@ export default {
 
 <style lang="sass" scoped>
 h3
-  font-size: 1.5rem
+  font-size: 1.25rem
 a
   color: white
+  text-decoration: underline!important
+  width: fit-content
   &:hover
     color: white
 .version
-  font-size: 1rem
+  font-size: 0.8rem
 </style>
