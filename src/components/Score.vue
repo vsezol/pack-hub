@@ -9,7 +9,7 @@
 
       <b-progress
         class="ml-2"
-        height="3px"
+        height="5px"
         :value="value"
         max="1"
         :variant="variants[i]"
