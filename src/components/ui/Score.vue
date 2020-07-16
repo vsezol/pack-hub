@@ -8,11 +8,11 @@
       <span>{{ words[i] }}</span>
 
       <b-progress
+        :value="value"
+        :variant="variants[i]"
+        max="1"
         class="ml-2"
         height="5px"
-        :value="value"
-        max="1"
-        :variant="variants[i]"
         animated
       ></b-progress>
     </div>

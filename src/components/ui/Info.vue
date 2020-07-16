@@ -18,6 +18,6 @@ export default {
 
 <style lang="sass" scoped>
 h1
-  font-size: 1.75rem!important
+  font-size: 1.5rem!important
   font-family: 'Roboto-Bold'
 </style>

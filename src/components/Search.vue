@@ -7,7 +7,6 @@
         class="shadow-none w-100 mr-2 flex-grow-1"
         placeholder="Search npm package..."
       ></b-form-input>
-
       <b-button variant="dark" type="submit" class="pl-lg-5 pr-lg-5">
         <b-icon-search></b-icon-search>
       </b-button>

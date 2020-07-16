@@ -9,7 +9,7 @@
     />
     <Info
       v-if="loading === 'begin'"
-      title="You can search for some libraries :)"
+      title="You can search for some JS libraries :)"
       lead="It's so easy!"
     />
     <Loader v-else-if="loading" class="loader" />
