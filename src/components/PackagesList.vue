@@ -3,6 +3,7 @@
     <Pagination
       v-if="total"
       :total="total"
+      :step="step"
       :pagination="pagination"
       @pagination="handlePagination"
     />
@@ -18,9 +19,7 @@
       lead="Try again!"
       bgVariant="warning"
     />
-    <div v-else>
-      <PackageCard v-for="(pack, i) of packages" :pack="pack" :key="i" />
-    </div>
+    <PackageCard v-else v-for="(pack, i) of packages" :pack="pack" :key="i" />
   </b-container>
 </template>
 
@@ -45,7 +44,8 @@ export default {
     'packages',
     'pagination',
     'total',
-    'toSearch'
+    'toSearch',
+    'step'
   ]),
   methods: {
     ...mapActions(['searchPacks']),

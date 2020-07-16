@@ -2,7 +2,8 @@
   <div class="main d-flex flex-column">
     <div class="main-wrapper flex-grow-1">
       <Header />
-      <Searcher />
+      <Search />
+      <PackagesList />
     </div>
     <Footer />
   </div>
@@ -10,13 +11,15 @@
 
 <script>
 import Header from '@/components/Header'
-import Searcher from '@/components/Searcher'
+import Search from '@/components/Search'
+import PackagesList from '@/components/PackagesList'
 import Footer from '@/components/Footer'
 
 export default {
   components: {
     Header,
-    Searcher,
+    Search,
+    PackagesList,
     Footer
   }
 }

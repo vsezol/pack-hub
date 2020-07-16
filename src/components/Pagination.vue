@@ -4,6 +4,7 @@
   >
     <h2 class="title p-0 m-0">{{ total }} packages found</h2>
     <b-pagination
+      v-if="rows > 1"
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -14,17 +15,17 @@
 
 <script>
 export default {
-  props: ['total', 'pagination'],
+  props: ['total', 'pagination', 'step'],
   data() {
     return {
-      rows: this.total,
+      rows: Math.round(this.total / this.step),
       perPage: 1,
-      currentPage: this.pagination + 1
+      currentPage: this.pagination
     }
   },
   watch: {
     currentPage(pagination) {
-      this.$emit('pagination', pagination - 1)
+      this.$emit('pagination', pagination)
     }
   }
 }

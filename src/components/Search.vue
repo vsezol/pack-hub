@@ -1,10 +1,6 @@
 <template>
   <b-container class="mt-5 mb-2">
-    <b-form
-      inline
-      class="w-100 flex-nowrap"
-      @submit.prevent="handleSubmit"
-    >
+    <b-form inline @submit.prevent="handleSearch" class="w-100 flex-nowrap">
       <b-form-input
         v-model.trim="toSearch"
         id="search"
@@ -20,6 +16,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -27,8 +24,10 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {
-      this.$emit('search', this.toSearch)
+    ...mapActions(['searchPacks', 'startNewSearchPacks']),
+    handleSearch() {
+      this.startNewSearchPacks()
+      this.searchPacks({ toSearch: this.toSearch })
       this.toSearch = ''
     }
   }

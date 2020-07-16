@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import {
   START_SEARCH_PACKS,
+  START_NEW_SEARCH_PACKS,
   SUCCESS_SEARCH_PACKS,
   ERROR_SEARCH_PACKS
 } from './mutationTypes'
@@ -23,6 +24,9 @@ export default new Vuex.Store({
   mutations: {
     [START_SEARCH_PACKS](state) {
       state.loading = true
+    },
+    [START_NEW_SEARCH_PACKS](state) {
+      state.total = 0
     },
     [SUCCESS_SEARCH_PACKS](state, { packages, pagination, total, toSearch }) {
       state.packages = packages
@@ -46,11 +50,15 @@ export default new Vuex.Store({
     errorSearchPacks({ commit }, error) {
       commit(ERROR_SEARCH_PACKS, error)
     },
+    startNewSearchPacks({ commit }) {
+      commit(START_NEW_SEARCH_PACKS)
+    },
     async searchPacks({ dispatch, state: { step } }, { toSearch, pagination }) {
       dispatch('startSearchPacks')
-      pagination = pagination || 0
+      pagination = pagination || 1
+      const from = (pagination - 1) * step
       try {
-        const { total, objects } = await search(toSearch, pagination, step)
+        const { total, objects } = await search(toSearch, from, step)
         dispatch('successSearchPacks', {
           pagination,
           total,
