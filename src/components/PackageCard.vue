@@ -21,7 +21,6 @@ import Score from './ui/Score'
 import Keywords from './ui/Keywords'
 
 const destructPack = pack => {
-  console.log(pack)
   const {
     score: {
       detail: { popularity, quality, maintenance }
