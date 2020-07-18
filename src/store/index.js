@@ -41,32 +41,23 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    startSearchPacks({ commit }) {
-      commit(START_SEARCH_PACKS)
-    },
-    successSearchPacks({ commit }, payload) {
-      commit(SUCCESS_SEARCH_PACKS, payload)
-    },
-    errorSearchPacks({ commit }, error) {
-      commit(ERROR_SEARCH_PACKS, error)
-    },
     startNewSearchPacks({ commit }) {
       commit(START_NEW_SEARCH_PACKS)
     },
-    async searchPacks({ dispatch, state: { step } }, { toSearch, pagination }) {
-      dispatch('startSearchPacks')
+    async searchPacks({ commit, state: { step } }, { toSearch, pagination }) {
+      commit(START_SEARCH_PACKS)
       pagination = pagination || 1
       const from = (pagination - 1) * step
       try {
         const { total, objects } = await search(toSearch, from, step)
-        dispatch('successSearchPacks', {
+        commit(SUCCESS_SEARCH_PACKS, {
           pagination,
           total,
           packages: objects,
           toSearch
         })
       } catch (error) {
-        dispatch('errorSearchPacks', error)
+        commit(ERROR_SEARCH_PACKS, error)
       }
     }
   }
